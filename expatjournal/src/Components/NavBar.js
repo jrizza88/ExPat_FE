@@ -10,6 +10,11 @@ const NavBar = props => {
                     <NavLink href="#" exact to="/">Home</NavLink>
                 </NavItem>
                 <NavItem> 
+                    <NavLink href="#" exact to="/profile">
+                        Profile
+                    </NavLink>
+                </NavItem>
+                <NavItem> 
                     <NavLink href="#" exact to="/messages">
                         Messages
                     </NavLink>

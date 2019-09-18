@@ -1,6 +1,8 @@
 import React from 'react';
 import HomeImage from '../../Assets/HomePagePhoto.png';
-import '../../App.css'
+import '../../App.css';
+
+
 
 const Home = props => {
     return (
