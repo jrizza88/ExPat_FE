@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, withRouter, Redirect } from "react-router-dom";
 import NavBar from './Components/NavBar';
 import Home from "./Components/Home/Home";
+import Profile from "./Components/Profile/Profile";
 import { Button } from 'reactstrap';
 
 class App extends React.Component {
@@ -10,8 +11,7 @@ class App extends React.Component {
     <div className="App">
       <NavBar />
       <Route exact path="/" render={() => <Home />} />
-        Hello!
-        <Button color="primary">ExPat!</Button>
+      <Route exact path="/profile" render={() => <Profile />} />
     </div>
   );
   }

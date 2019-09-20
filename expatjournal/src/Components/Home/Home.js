@@ -1,7 +1,7 @@
 import React from 'react';
 import HomeImage from '../../Assets/HomePagePhoto.png';
 import '../../App.css';
-
+import { Button } from 'reactstrap';
 
 
 const Home = props => {
@@ -9,6 +9,7 @@ const Home = props => {
         <>
         <img src={HomeImage} alt="home" className="big"/>
         <div>Welcome to the Expat Application!</div>
+        <Button color="primary">ExPat!</Button>
         </>
     )
 }
