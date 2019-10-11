@@ -3,7 +3,6 @@ import { Route, withRouter, Redirect } from "react-router-dom";
 import NavBar from './Components/NavBar';
 import Home from "./Components/Home/Home";
 import Profile from "./Components/Profile/Profile";
-import { Button } from 'reactstrap';
 
 class App extends React.Component {
   render(){
