@@ -14,6 +14,28 @@ class LoginRegister extends React.Component {
         }
     }
 
+    handleChange = event => {
+        this.setState = ({
+            [event.target.name]: event.target.value
+        })
+        console.log('event target', event.target.value)
+    }
+
+    handleSubmit = event => {
+        event.preventDefault();
+
+        const endpoint = "https://expat-lambda.herokuapp.com/api/login"
+
+        axios.post(endpoint, this.state)
+        .then(res => {
+            localStorage.setItem('jwt', res.data.token)
+            console.log('login response', res.data)
+        }).catch( event => {
+            console.error(event)
+            }
+        )
+    }
+
   render(){
       return (
           <>
