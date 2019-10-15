@@ -51,7 +51,7 @@ class LoginRegister extends React.Component {
                             onChange={this.handleChange}
                             type="text"
                         />
-                        <label>passsword</label>
+                        <label>password</label>
                         <input
                             placeholder="password.."
                             name="password"
@@ -61,7 +61,7 @@ class LoginRegister extends React.Component {
                             type="text"
                         />
                         <div>
-                        <Button color="primary">ExPat!</Button>
+                        <Button color="primary">Submit</Button>
                         </div>
                     </form>
                     
