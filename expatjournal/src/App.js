@@ -3,7 +3,8 @@ import { Route, withRouter, Redirect } from "react-router-dom";
 import NavBar from './Components/NavBar';
 import Login from './Components/Auth/Login';
 import Home from "./Components/Home/Home";
-import Profile from "./Components/Profile/Profile";
+import ProfileDashboard from "./Components/Profile/ProfileDashboard";
+// import Profile from "./Components/Profile/Profile";
 
 class App extends React.Component {
   render(){
@@ -12,7 +13,7 @@ class App extends React.Component {
       <NavBar />
       <Route exact path="/login" render={() => <Login />} />
       <Route exact path="/" render={() => <Home />} />
-      <Route exact path="/profile" render={() => <Profile />} />
+      <Route exact path="/profile" render={() => <ProfileDashboard />} />
     </div>
   );
   }

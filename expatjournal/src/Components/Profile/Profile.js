@@ -1,9 +1,14 @@
 import React from 'react';
 
-const Profile = () => (
+const Profile = props => {
+  
+return (
     <>
-    Welcome back!
+        <h1>Welcome back, {props.name}!</h1>
+        <h2>You have {props.posts} posts!</h2>
+            
     </>
-);
+)
+};
 
 export default Profile;
