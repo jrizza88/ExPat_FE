@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import { Redirect } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 // import { Button } from 'reactstrap';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -73,7 +73,7 @@ class Login extends React.Component {
                     </form>
                     
                 </div>
-            <div>Register... you're missing out on the fun!</div>
+            <div><NavLink href="#" to="/register">Register</NavLink>... you're missing out on the fun!</div>
           </>
       )
   }

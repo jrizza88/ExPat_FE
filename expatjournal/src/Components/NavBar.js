@@ -3,7 +3,14 @@ import { NavLink } from "react-router-dom";
 // import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Nav, NavItem } from 'reactstrap';
 const NavBar = props => {
+
+    const logout = () => {
+        localStorage.removeItem('jwt');
+        props.history.push('/')
+        console.log('logout pressed', props.logout)
+    }
     return (
+        
         <>
             <Nav>
                 <NavItem> 
@@ -17,6 +24,11 @@ const NavBar = props => {
                 <NavItem> 
                     <NavLink href="#" exact to="/messages">
                         Messages
+                    </NavLink>
+                </NavItem>
+                <NavItem> 
+                    <NavLink href="#" exact to="/login" onClick={logout}>
+                        Logout
                     </NavLink>
                 </NavItem>
             </Nav>

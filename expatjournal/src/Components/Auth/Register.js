@@ -39,7 +39,6 @@ class Register extends React.Component{
        .catch(error => {
            console.error(error)
        })
-
     }
 
     render(){
@@ -47,7 +46,26 @@ class Register extends React.Component{
             <>
             <h2>Register a new user</h2>
             <form onSubmit={this.handleRegistration}>
-
+            <label htmlFor="username">username</label>
+                        <input 
+                            placeholder="Enter username here"
+                            name="username"
+                            // id="username"
+                            value={this.state.username}
+                            onChange={this.handleChange}
+                            type="text"
+                        />
+                        <label htmlFor="password">password</label>
+                        <input
+                            placeholder="create a password.."
+                            name="password"
+                            // id="password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            type="text"
+                        />
+                        <Button color="default" type="submit" onClick={<Redirect from='/register' to='/login' />}>Create User</Button>
+                        
             </form>
             </>
         )
