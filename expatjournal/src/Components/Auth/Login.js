@@ -1,6 +1,9 @@
 import React from "react";
 import axios from 'axios';
-import { Button } from 'reactstrap';
+import { Redirect } from "react-router-dom";
+// import { Button } from 'reactstrap';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 class Login extends React.Component {
     constructor(props){
@@ -12,7 +15,7 @@ class Login extends React.Component {
             password: "",
             toProfilePage: false
         }
-        // this.handleChange = this.handleChange.bind(this)
+        
     }
 
     handleChange = e => {
@@ -22,17 +25,20 @@ class Login extends React.Component {
         });
     }
 
-    handleSubmit = event => {
+    handleLogin = event => {
         event.preventDefault();
 
         const endpoint = "https://expat-lambda.herokuapp.com/api/login"
 
         axios.post(endpoint, this.state)
         .then(res => {
+            console.log('post login request', res)
+            console.log('post request...', res.data)
             localStorage.setItem('jwt', res.data.token)
-            console.log('login response', res.data)
-        }).catch( event => {
-            console.error(event)
+            console.log('login response', res.data)           
+            console.log('login token', res.data.token)
+        }).catch( e=> {
+            console.error(e)
             }
         )
     }
@@ -42,8 +48,8 @@ class Login extends React.Component {
           <>
             <div>Login to get started!</div>
                 <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>username</label>
+                    <form onSubmit={this.handleLogin}>
+                        <label htmlFor="username">username</label>
                         <input 
                             placeholder="Enter username here"
                             name="username"
@@ -52,7 +58,7 @@ class Login extends React.Component {
                             onChange={this.handleChange}
                             type="text"
                         />
-                        <label>password</label>
+                        <label htmlFor="password">password</label>
                         <input
                             placeholder="password.."
                             name="password"
