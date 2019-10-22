@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Route, withRouter, Redirect } from "react-router-dom";
 import NavBar from './Components/NavBar';
@@ -8,18 +8,36 @@ import Home from "./Components/Home/Home";
 import ProfileDashboard from "./Components/Profile/ProfileDashboard";
 // import Profile from "./Components/Profile/Profile";
 
-class App extends React.Component {
-  render(){
+const PrivateRoute = ({ component: Component, render, ...rest}) => (
+  
+  <Route {...rest} 
+  render={
+    props =>
+    localStorage.getItem("token") ? (
+      Component ? (
+        <Component {...props} />
+      ) : (
+        render(props)
+      )
+    ) : (
+      <Redirect to="/login" />
+    )
+  } />
+);
+
+const App = props => {
+
+  // render(){
   return (
     <div className="App">
       <NavBar />
       <Route exact path="/login" render={() => <Login />} />
       <Route exact path="/register" render={() => <Register />} />
       <Route exact path="/" render={() => <Home />} />
-      <Route exact path="/profile" render={() => <ProfileDashboard />} />
+      <PrivateRoute exact path="/profile" render={(props) => <ProfileDashboard {...props} />} />
     </div>
   );
   }
-}
+// }
 
-export default App;
+export default withRouter(App);

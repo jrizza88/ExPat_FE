@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink, withRouter } from "react-router-dom";
-// import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Nav, NavItem } from 'reactstrap';
+
+
 const NavBar = props => {
 
     const logout = () => {

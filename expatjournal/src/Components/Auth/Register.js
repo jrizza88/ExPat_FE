@@ -1,8 +1,8 @@
 import React from 'react';
-import { Redirect } from "react-router-dom";
-import Form from 'react-bootstrap/Form';
+import { withRouter, NavLink } from "react-router-dom";
+// import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Axios from 'axios';
+import axios from 'axios';
 
 
 class Register extends React.Component{
@@ -12,8 +12,7 @@ class Register extends React.Component{
             firstName: "",
             lastName: "",
             username: "",
-            password: "",
-            toProfilePage: false
+            password: ""
         }
     }
 
@@ -28,12 +27,10 @@ class Register extends React.Component{
 
        const endpoint = "https://expat-lambda.herokuapp.com/api/register"
 
-       Axios.post(endpoint, this.state)
+       axios.post(endpoint, this.state)
        .then(res => {
-           console.log('post register request', res)
-           console.log('post request regis data', res.data)
            localStorage.setItem('jwt', res.data.token)
-           this.state.history.push('/login')
+           this.props.history.push('/login')
            console.log('regis response', res.data)
            console.log('registration token', res.data.token)
        })
@@ -65,12 +62,12 @@ class Register extends React.Component{
                             onChange={this.handleChange}
                             type="text"
                         />
-                        <Button color="primary" type="submit">Create User</Button>
-                        
+                        <Button variant="primary" type="submit">Create User</Button>
+                        <Button variant="warning" type="submit"><NavLink href="#" to="/login">I have an account</NavLink></Button>
             </form>
             </>
         )
     }
 }
 
-export default Register;
+export default withRouter(Register);

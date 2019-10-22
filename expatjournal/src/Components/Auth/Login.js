@@ -1,8 +1,8 @@
 import React from "react";
 import axios from 'axios';
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 // import { Button } from 'reactstrap';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 class Login extends React.Component {
@@ -35,6 +35,7 @@ class Login extends React.Component {
             console.log('post login request', res)
             console.log('post request...', res.data)
             localStorage.setItem('jwt', res.data.token)
+            this.props.history.push('/profile')
             console.log('login response', res.data)           
             console.log('login token', res.data.token)
         }).catch( e=> {
@@ -79,4 +80,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);
