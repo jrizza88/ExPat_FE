@@ -1,13 +1,13 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 // import { Nav, NavItem, NavLink } from 'reactstrap';
 import { Nav, NavItem } from 'reactstrap';
 const NavBar = props => {
 
     const logout = () => {
         localStorage.removeItem('jwt');
-        props.history.push('/')
-        console.log('logout pressed', props.logout)
+        props.history.push('/login')
+        console.log('logout pressed', logout)
     }
     return (
         
@@ -36,4 +36,4 @@ const NavBar = props => {
     )
 }
 
-export default NavBar;
+export default withRouter(NavBar);
