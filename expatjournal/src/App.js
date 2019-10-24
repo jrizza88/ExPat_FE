@@ -6,6 +6,7 @@ import Login from './Components/Auth/Login';
 import Register from "./Components/Auth/Register";
 import Home from "./Components/Home/Home";
 import ProfileDashboard from "./Components/Profile/ProfileDashboard";
+import Messages from "./Components/Messages/Messages";
 // import Profile from "./Components/Profile/Profile";
 
 const PrivateRoute = ({ component: Component, render, ...rest}) => (
@@ -13,7 +14,7 @@ const PrivateRoute = ({ component: Component, render, ...rest}) => (
   <Route {...rest} 
   render={
     props =>
-    localStorage.getItem("token") ? (
+    localStorage.getItem("jwt") ? (
       Component ? (
         <Component {...props} />
       ) : (
@@ -35,6 +36,7 @@ const App = props => {
       <Route exact path="/register" render={() => <Register />} />
       <Route exact path="/" render={() => <Home />} />
       <PrivateRoute exact path="/profile" render={(props) => <ProfileDashboard {...props} />} />
+      <PrivateRoute exact path="/messages" render={(props) => <Messages {...props} />} />
     </div>
   );
   }
