@@ -25,7 +25,7 @@ class Register extends React.Component{
     handleRegistration = e => {
        e.preventDefault();
 
-       const endpoint = "https://expat-lambda.herokuapp.com/api/register"
+       const endpoint = `https://expat-lambda.herokuapp.com/api/register`
 
        axios.post(endpoint, this.state)
        .then(res => {
