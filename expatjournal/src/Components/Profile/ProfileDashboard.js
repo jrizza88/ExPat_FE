@@ -6,27 +6,24 @@ class ProfileDashboard extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            user: {
-                name: "",
+                name: "Jamar",
                 id: null,
-                posts: []
-            }
+                posts: [2]
         }
     }
 // https://expat-lambda.herokuapp.com/api/user/:id
-    componentDidMount = (id) => {
-        // const id = this.state.user;
+    componentDidMount = () => {
+        const id = this.props.match.params.id;
+        const headers = { authorization: localStorage.getItem('jwt') };
         axios.get(`https://expat-lambda.herokuapp.com/api/user/${id}`,
-        {headers: {Authorization: localStorage.getItem("jwt") }})
+        {headers})
         .then(response => {
             console.log(response.data)
             console.log('data? user', response.user.data)
             console.log("user id", id)
             this.setState({
-                ...this.state.user, user:{
                     id: response.data.id,
                     name: response.data.name
-                }
 
             })
         .catch(error => console.error('GET response error user id', error))
@@ -35,7 +32,14 @@ class ProfileDashboard extends React.Component {
     render(){
         return (
             <div>
-                  < Profile name={this.state.user.name} id={this.state.user.id}/>
+                {/* <ul>
+                     {this.state.users.map(user => {
+                        return (
+                        <Profile name={user.name} id={user.id} key={user.id}/>
+                        )
+                    })}
+                </ul> */}
+                  <Profile name={this.state.name} id={this.state.id} posts={this.state.posts} />
             </div>
         )
     }
