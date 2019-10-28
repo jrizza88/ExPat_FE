@@ -1,6 +1,10 @@
 import React from "react";
 import Profile from "./Profile";
 import axios from "axios";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+// import{ Col }from 'react-bootstrap';
 
 class ProfileDashboard extends React.Component {
     constructor(props){
@@ -40,6 +44,16 @@ class ProfileDashboard extends React.Component {
                     })}
                 </ul> */}
                   <Profile name={this.state.name} id={this.state.id} posts={this.state.posts} />
+                <Container>
+                    <Row>
+                        <Col sx={12} md={8}>
+                            <div>Latest three posts</div>
+                        </Col>
+                        <Col sx={12} md={8}>
+                            <div>Latest three photos</div>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         )
     }
