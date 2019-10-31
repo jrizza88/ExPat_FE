@@ -1,5 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Profile = props => {
     console.log("profile props", props)
@@ -15,6 +17,16 @@ return (
     <Container>
         <h1>Welcome back, {props.name}!, {props.id}</h1>
         <h2>You have {props.posts} posts!</h2>
+         <Container>
+                    <Row>
+                        <Col sx={12} md={8}>
+                            <div>Latest three posts</div>
+                        </Col>
+                        <Col sx={12} md={8}>
+                            <div>Latest three photos</div>
+                        </Col>
+                    </Row>
+                </Container>
     </Container>
     </>
 )

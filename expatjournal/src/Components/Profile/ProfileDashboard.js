@@ -1,10 +1,6 @@
 import React from "react";
 import Profile from "./Profile";
 import axios from "axios";
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-// import{ Col }from 'react-bootstrap';
 
 class ProfileDashboard extends React.Component {
     constructor(props){
@@ -18,6 +14,8 @@ class ProfileDashboard extends React.Component {
 // https://expat-lambda.herokuapp.com/api/user/:id
     componentDidMount = () => {
         const id = this.props.match.params.id;
+        console.log('match.params..', this.props.match.params.id)
+        console.log('id mounted', id)
         const headers = { authorization: localStorage.getItem('jwt') };
         axios.get(`https://expat-lambda.herokuapp.com/api/user/${id}`,
         {headers})
@@ -36,6 +34,7 @@ class ProfileDashboard extends React.Component {
     render(){
         return (
             <div>
+                                  <Profile {...this.state} />
                 {/* <ul>
                      {this.state.users.map(user => {
                         return (
@@ -43,8 +42,8 @@ class ProfileDashboard extends React.Component {
                         )
                     })}
                 </ul> */}
-                  <Profile name={this.state.name} id={this.state.id} posts={this.state.posts} />
-                <Container>
+                  {/* <Profile name={this.state.name} id={this.state.id} posts={this.state.posts} /> */}
+                {/* <Container>
                     <Row>
                         <Col sx={12} md={8}>
                             <div>Latest three posts</div>
@@ -53,7 +52,7 @@ class ProfileDashboard extends React.Component {
                             <div>Latest three photos</div>
                         </Col>
                     </Row>
-                </Container>
+                </Container> */}
             </div>
         )
     }

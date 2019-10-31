@@ -7,6 +7,7 @@ class Messages extends React.Component {
         this.state = {
             messages: []
         }
+        
     }
     render(){
         return (
