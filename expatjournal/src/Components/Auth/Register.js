@@ -9,8 +9,8 @@ class Register extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            firstName: "",
-            lastName: "",
+            // firstName: "",
+            // lastName: "",
             username: "",
             password: ""
         }
@@ -19,16 +19,19 @@ class Register extends React.Component{
     handleChange = e => {
         const {name, value} = e.target;
         this.setState({[name]: value})
-        console.log('registration target', e.target.value)
+        // console.log('registration target', e.target.value)
     }
 
     handleRegistration = e => {
        e.preventDefault();
 
-       const endpoint = `https://expat-lambda.herokuapp.com/api/register`
+       const endpoint = "https://expat-lambda.herokuapp.com/api/register";
+       const endpoint2 = "http://localhost:7777/api/register"
 
        axios.post(endpoint, this.state)
        .then(res => {
+        console.log('post register request', res)
+        console.log('post reg request...', res.data)
            localStorage.setItem('jwt', res.data.token)
            this.props.history.push('/login')
            console.log('regis response', res.data)
@@ -48,7 +51,7 @@ class Register extends React.Component{
                         <input 
                             placeholder="Enter username here"
                             name="username"
-                            id="username"
+                            //id="username"
                             value={this.state.username}
                             onChange={this.handleChange}
                             type="text"
@@ -57,7 +60,7 @@ class Register extends React.Component{
                         <input
                             placeholder="create a password.."
                             name="password"
-                            id="password"
+                            //id="password"
                             value={this.state.password}
                             onChange={this.handleChange}
                             type="text"

@@ -7,14 +7,16 @@ class ProfileDashboard extends React.Component {
         super(props);
         this.state = {
                 name: "Jamar",
-                id: null,
+                id: "",
                 posts: [2]
         }
     }
 // https://expat-lambda.herokuapp.com/api/user/:id
     componentDidMount = () => {
         const id = this.props.match.params.id;
-        console.log('match.params..', this.props.match.params.id)
+        console.log('this.props', this.props)
+        console.log('match.params..', this.props.match.params)
+        console.log('match.params.id', this.props.match.params.id)
         console.log('id mounted', id)
         const headers = { authorization: localStorage.getItem('jwt') };
         axios.get(`https://expat-lambda.herokuapp.com/api/user/${id}`,
