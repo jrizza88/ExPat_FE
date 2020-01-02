@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script&display=swap");
+
 .App {
   text-align: center;
 }
@@ -37,6 +39,11 @@
     top: 0;
     left: 0;
     z-index: -1;
+}
+
+.logo{
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
 }
 
 @keyframes App-logo-spin {
