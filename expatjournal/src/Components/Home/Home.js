@@ -10,7 +10,7 @@ const Home = props => {
         <>
         <img src={HomeImage} alt="home" className="big"/>
         <div className="logo">Welcome to Expat!</div>
-        <Button className="urls" color="primary"><NavLink href="#" to="/login">ExPat!</NavLink></Button>
+        <Button variant="light"><NavLink href="#" className="urls" to="/login">Login</NavLink></Button>
         </>
     )
 }
