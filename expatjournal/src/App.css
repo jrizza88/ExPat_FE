@@ -46,6 +46,15 @@
   font-size: 48px;
 }
 
+.urls{
+  text-decoration: none;
+  color: white;
+}
+
+a .urls{
+  color: black;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
