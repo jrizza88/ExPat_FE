@@ -2,16 +2,13 @@ import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+  } from 'reactstrap';
 
 const Profile = props => {
     console.log("profile props", props)
-//   const users = props.name.map((user, i) => (
-//       <div key={i}>
-//           <h1>Welcome back {user.name} !</h1>
-//           <h2>Your user id is: {user.id}</h2>
-//       </div>
-//   ));
-//   console.log("profile props 2", props)
 return (
     <>
     <Container>
@@ -19,6 +16,18 @@ return (
         <h2>You have {props.posts} posts!</h2>
          <Container>
                     <Row>
+                        <Card style={{width: '18rem'}}>
+                            <CardImg variant="top" src="https://101oftraveling.files.wordpress.com/2014/11/travel.jpg" />
+                            <CardBody>
+                                <CardTitle>Card Title</CardTitle>
+                                <CardText>
+                                Some quick example text to build on the card title and make up the bulk of
+                                the card's content.
+                                </CardText>
+                                <Button variant="primary">Go somewhere</Button>
+                            </CardBody>
+                
+                        </Card>
                         <Col sx={12} md={8}>
                             <div>Latest three posts</div>
                         </Col>
