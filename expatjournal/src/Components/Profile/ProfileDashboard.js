@@ -6,8 +6,8 @@ class ProfileDashboard extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-                name: "Jamar",
-                id: "",
+                name: "J",
+                id: null,
                 posts: [2]
         }
     }
@@ -34,27 +34,27 @@ class ProfileDashboard extends React.Component {
         });
     }
     render(){
+        console.log('this.props', this.props)
+        console.log('state', this.state)
         return (
+            
             <div>
                                   <Profile {...this.state} />
                 {/* <ul>
-                     {this.state.users.map(user => {
+                     {this.props.users.map(user => {
                         return (
-                        <Profile name={user.name} id={user.id} key={user.id}/>
-                        )
+                        <Profile 
+                            name={user.name} 
+                            posts={user.posts}
+                            id={user.id} 
+                            key={user.id}
+                            
+                        />
+                        
+                        );
                     })}
                 </ul> */}
-                  {/* <Profile name={this.state.name} id={this.state.id} posts={this.state.posts} /> */}
-                {/* <Container>
-                    <Row>
-                        <Col sx={12} md={8}>
-                            <div>Latest three posts</div>
-                        </Col>
-                        <Col sx={12} md={8}>
-                            <div>Latest three photos</div>
-                        </Col>
-                    </Row>
-                </Container> */}
+               
             </div>
         )
     }
