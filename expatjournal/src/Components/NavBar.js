@@ -28,6 +28,13 @@ const NavBar = props => {
                     </Navbar.Brand>
                 </NavItem>
                
+            <NavItem> 
+           
+           <Navbar.Brand > <NavLink href="#" to="/journal">
+                   Journal
+               </NavLink>
+               </Navbar.Brand>
+           </NavItem>
                 
                 <NavItem> 
               

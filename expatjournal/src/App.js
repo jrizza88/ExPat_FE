@@ -7,6 +7,7 @@ import Register from "./Components/Auth/Register";
 import Home from "./Components/Home/Home";
 import ProfileDashboard from "./Components/Profile/ProfileDashboard";
 import Messages from "./Components/Messages/Messages";
+import Journal from "./Components/Journal/Journal";
 // import Profile from "./Components/Profile/Profile";
 
 const PrivateRoute = ({ component: Component, render, ...rest}) => (
@@ -36,8 +37,9 @@ const App = () => {
       <Route exact path="/register" render={() => <Register />} />
       <Route exact path="/" render={() => <Home />} />
       {/* <PrivateRoute exact path="/profile" render={() => (<ProfileDashboard />)} /> */}
-      <PrivateRoute exact path="/profile" render={props => (<ProfileDashboard {...props}  />)} />
+      <PrivateRoute exact path="/profile" render={props => <ProfileDashboard {...props}  />} />
       <PrivateRoute exact path="/messages" render={props => <Messages {...props} />} />
+      <PrivateRoute exact path="/journal" render={props => <Journal {...props} />}  />
     </div>
   );
   }
