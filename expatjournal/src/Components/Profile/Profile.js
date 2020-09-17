@@ -20,10 +20,9 @@ return (
                         <Card style={{width: '18rem'}}>
                             <CardImg variant="top" src="https://101oftraveling.files.wordpress.com/2014/11/travel.jpg" />
                             <CardBody>
-                                <CardTitle>Card Title</CardTitle>
+                                <CardTitle>{props.title}</CardTitle>
                                 <CardText>
-                                Some quick example text to build on the card title and make up the bulk of
-                                the card's content.
+                               {props.text}
                                 </CardText>
                                 <Button variant="primary">Go somewhere</Button>
                             </CardBody>
