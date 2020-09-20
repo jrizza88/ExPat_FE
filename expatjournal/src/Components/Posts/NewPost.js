@@ -18,13 +18,28 @@ class NewPost extends React.Component {
 
     addPost = e => {
         e.preventDefault();
+        
     }
 
     render(){
         return (
             <div>
                 <h1>New Posts</h1>
-
+                <form onSubmit={this.addPost}>
+                    <input 
+                    type="text"
+                    name="title"
+                    onChange={this.handleNewPostSubmit}
+                    value={this.state.title}
+                    />
+                    <textarea 
+                    type="text"
+                    name="postBody"
+                    onChange={this.handleNewPostSubmit}
+                    value={this.state.postBody}
+                    />
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         )
     }
