@@ -18,7 +18,13 @@ class NewPost extends React.Component {
 
     addPost = e => {
         e.preventDefault();
-        
+        this.props.addPost(this.state)
+        this.setState({
+            id: null,
+            title: '',
+            postBody: ''
+        })
+        this.props.history.push('/')
     }
 
     render(){

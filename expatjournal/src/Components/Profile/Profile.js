@@ -11,7 +11,7 @@ const Profile = props => {
     console.log("profile props", props)
 return (
     <>
-    <Container>
+    <Container key={props.user_id}>
         <h1>Welcome back, {props.name}!</h1>
         <h2>You have {props.posts} posts!</h2>
         <h3>{props.id}</h3>
