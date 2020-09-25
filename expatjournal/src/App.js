@@ -36,10 +36,9 @@ const App = () => {
       <Route exact path="/login" render={() => <Login />} />
       <Route exact path="/register" render={() => <Register />} />
       <Route exact path="/" render={() => <Home />} />
-      {/* <PrivateRoute exact path="/profile" render={() => (<ProfileDashboard />)} /> */}
-      <PrivateRoute exact path="/profile" render={props => <ProfileDashboard {...props}  />} />
-      <PrivateRoute exact path="/messages" render={props => <Messages {...props} />} />
-      <PrivateRoute exact path="/journal" render={props => <Journal {...props} />}  />
+      <PrivateRoute exact path="/profile" render={(props) => <ProfileDashboard {...props}  />} />
+      <PrivateRoute exact path="/messages" render={(props) => <Messages {...props} />} />
+      <PrivateRoute exact path="/journal" render={(props) => <Journal {...props} />}  />
     </div>
   );
   }
