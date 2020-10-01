@@ -12,7 +12,7 @@ const Profile = props => {
 return (
     <>
     <Container key={props.id}>
-        <h3>{props.id}</h3>
+        <h3>{props.user_id}</h3>
          <Container>
                     <Row>
                         <Card style={{width: '18rem'}}>

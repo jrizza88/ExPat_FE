@@ -7,8 +7,9 @@ class ProfileDashboard extends React.Component {
         super(props);
         this.state = {
                 posts: [],
+                user_id: null,
                 userProfile: [{
-                    name: "J",
+                    name: '',
                     id: '',
                     user_id: '',
                     created_at: '',
@@ -21,26 +22,30 @@ class ProfileDashboard extends React.Component {
 
 // componentDidMount is not being mounted.. may need to move pass it somewhere else. 
     componentDidMount = () => {
-       const user_id = this.props.match.params.user_id
+        // console.log('props... for user login', this.props.user_id)
+        // const user_id = this.props.match.params.data
+        const user_id = this.props.match.params.id
         // console.log('this.props in component did mount', this.props)
         console.log('match.params..', this.props.match.params)
         console.log('match.params.user_id ', this.props.match.params.user_id)
-        
+        // const user_id = this.props.match.params.user_id
         console.log('id mounted', user_id )
         // Authorization VS authorization
         const headers = { Authorization: localStorage.getItem('jwt') };
         console.log('headers', headers)
-        axios.get(`https://expat-lambda.herokuapp.com/api/user/posts/1`,
+        //axios.get(`https://expat-lambda.herokuapp.com/api/user/${user_id}`,
+        axios.get(`https://expat-lambda.herokuapp.com/api/user/posts/${user_id}`,
         {headers})
         
         .then(response => {
+            // console.log('user_id', user_id)
             console.log('response....', response)
             console.log('response.data: ', response.data)
             // console.log('data? user', response.user.data)
-            console.log("user id", response.data[user_id])
+            console.log("user id", response.user_id)
             this.setState({
                 posts: response.data.length,
-                userProfile: response.data,
+                userProfile: response.data
                 
                     // id: response.data.user_id,
                     // name: response.data.name
@@ -52,9 +57,42 @@ class ProfileDashboard extends React.Component {
         
 }
 
-    renderPosts = () => {
-        return (
+renderUserPosts = id => {
+    const user_id = this.props.match.params.id
+    // console.log('this.props in component did mount', this.props)
+    console.log('match.params..', this.props.match.params)
+    console.log('match.params.user_id ', this.props.match.params.user_id)
+    // const user_id = this.props.match.params.user_id
+    console.log('id mounted', user_id )
+    // Authorization VS authorization
+    const headers = { Authorization: localStorage.getItem('jwt') };
+    console.log('headers', headers)
+     axios.get(`https://expat-lambda.herokuapp.com/api/user/${user_id}`,
+    // axios.get(`https://expat-lambda.herokuapp.com/api/user/posts/${user_id}`,
+    {headers})
+    
+    .then(response => {
+        // console.log('user_id', user_id)
+        console.log('response....', response)
+        console.log('response.data: ', response.data)
+        // console.log('data? user', response.user.data)
+        console.log("user id", response.user_id)
+        this.setState({
+            posts: response.data.length,
+            userProfile: response.data
+            
+                // id: response.data.user_id,
+                // name: response.data.name
+        })
+    })
+    .catch(error => {
+            console.error("GET error occured!", error);
+    });
+    
+}
 
+    renderPosts = (id) => {
+        return (
            <div>You have created {this.state.posts} posts.</div> 
         )
     }
