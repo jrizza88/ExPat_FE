@@ -8,19 +8,19 @@ import {
   } from 'reactstrap';
 
 const Profile = props => {
-    console.log("profile props", props)
+    // console.log("profile props", props)
 return (
     <>
-    <Container key={props.user_id}>
-        <h1>Welcome back, {props.name}!</h1>
-        <h2>You have {props.posts} posts!</h2>
-        <h3>{props.id}</h3>
+    <Container key={props.id}>
+        <h3>{props.user_id}</h3>
          <Container>
                     <Row>
                         <Card style={{width: '18rem'}}>
                             <CardImg variant="top" src="https://101oftraveling.files.wordpress.com/2014/11/travel.jpg" />
+                            <div>{props.created_at}</div>
                             <CardBody>
                                 <CardTitle>{props.title}</CardTitle>
+                                
                                 <CardText>
                                {props.text}
                                 </CardText>
@@ -28,12 +28,12 @@ return (
                             </CardBody>
                 
                         </Card>
-                        <Col sx={12} md={8}>
+                        {/* <Col sx={12} md={8}>
                             <div>Latest three posts</div>
                         </Col>
                         <Col sx={12} md={8}>
                             <div>Latest three photos</div>
-                        </Col>
+                        </Col> */}
                     </Row>
                 </Container>
     </Container>
